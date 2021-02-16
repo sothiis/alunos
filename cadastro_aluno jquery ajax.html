@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+   <head>
+
+      <title>Faculdade Virtual</title>
+
+      <style type="text/css">
+
+         h1{
+            color:black; font-style: bold;
+            }
+
+         p{
+
+            color:black; font-style: bold;
+            }
+
+         .font{
+            color:black; font-style: bold;
+            }
+
+         input{
+            color:black; font-style: bold;
+            }
+
+      </style>
+
+      <script>
+
+         function Inclusao() {
+
+            var dadosajax = {
+
+              'nome_aluno': document.getElementById("nome").value;
+              'endereco_aluno': document.getElementById("endereco").value;
+              'idade_aluno': document.getElementById("idade").value;
+              'curso_aluno': document.getElementById("curso").value;
+            };
+
+
+             pageurl = 'incluir_aluno.php';
+
+              $.ajax({
+
+                 url: pageurl,
+                 data: dadosajax,
+                 type: 'POST',
+                 cache: false,
+
+                 error: function(XMLHttpRequest, textStatus, errorThrown)
+
+                    {
+                       alert('Erro: Acessar Função PHP!!');
+                    },
+
+                 success: function(result)
+
+                    {
+                       alert('Inclusão realizada com sucesso!');
+                    }
+
+              })
+
+         }
+
+
+         function Exclusao() {
+
+            var dadosajax = {
+              'nome_aluno': document.getElementById("nome").value;
+             };
+
+
+             pageurl = 'excluir_aluno.php';
+
+              $.ajax({
+
+                 url: pageurl,
+
+                 data: dadosajax,
+
+                 type: 'POST',
+
+                 cache: false,
+
+                 error: function(XMLHttpRequest, textStatus, errorThrown)
+                    {
+                       alert('Erro: Acessar Função PHP!!');
+                    },
+
+                 success: function(result)
+
+                    {
+                       alert('Exclusão realizada com sucesso!');
+                    }
+
+              })
+
+
+         }
+
+         function Alteracao() {
+
+            var dadosajax = {
+
+              'nome_aluno': document.getElementById("nome").value;
+              'endereco_aluno': document.getElementById("endereco").value;
+              'idade_aluno': document.getElementById("idade").value;
+              'curso_aluno': document.getElementById("curso").value;
+
+             };
+
+
+             pageurl = 'alterar_aluno.php';
+
+              $.ajax({
+
+                 url: pageurl,
+
+                 data: dadosajax,
+
+                 type: 'POST',
+
+                 cache: false,
+
+                 error: function(XMLHttpRequest, textStatus, errorThrown)
+
+                    {
+
+                       alert('Erro: Acessar Função PHP!!');
+
+                    },
+
+                 success: function(result)
+
+                    {
+
+                       alert('Alteração realizada com sucesso!');
+
+                    }
+
+              })
+
+         }
+
+         function Consulta() {
+
+            var dadosajax = {
+
+              'nome_aluno': document.getElementById("nome").value;
+
+             };
+
+
+             pageurl = 'consultar_aluno.php';
+
+              $.ajax({
+
+                 url: pageurl,
+
+                 data: dadosajax,
+
+                 type: 'POST',
+
+                 cache: false,
+
+                 error: function(XMLHttpRequest, textStatus, errorThrown)
+
+                    {
+
+                       alert('Erro: Acessar Função PHP!!');
+
+                    },
+
+                 success: function(result)
+
+                    {
+
+                       alert('Consuta realizada com sucesoo!!');
+
+                    }
+
+              })
+
+         }
+
+      </script>
+
+   </head>
+
+   <body>
+
+      <h1>Cadastro de Aluno</h1><p></p>
+
+      <p>Inclua as informações do aluno abaixo</p>
+
+      <font> Nome: </font><p></p>
+
+      <input type=”text” id=”nome”></input><p></p>
+
+      <font> Endereço: </font><p></p>
+
+      <input type=”text” id=”endereco”></input><p></p>
+
+      <font> Idade: </font><p></p>
+
+      <input type=”text” id=”idade”></input><p></p>
+
+      <font> Curso: </font><p></p>
+
+      <input type=”text” id=”idade”></input><p></p>
+
+      <input type="button" value="Incluir" id=”botao_incluir” onClick="Inclusao()">
+
+      <input type="button" value="Excluir" id=”botao_excluir” onClick="Exclusao()">
+
+      <input type="button" value="Alterar" id=”botao_alterar” onClick="Alteracao()">
+
+      <input type="button" value="Consultar" id=”botao_consultar” onClick="Consulta()">
+
+   </body>
+
+</html>
